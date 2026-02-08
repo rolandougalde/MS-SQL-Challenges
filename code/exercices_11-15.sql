@@ -36,6 +36,11 @@ AND NOT City = 'Madrid'
 -- 14. Retrieve the list of orders, and display a column where a 10% tax is 
 -- calculated when the value of the Freight column is greater than or equal to 480.
 
+SELECT OrderID, Freight,
+0.10 * Freight AS [Impuesto 10%]
+FROM Orders
+WHERE Freight >= 480
+
 
 -- 15. Retrieve the number of employees for each city.
 
