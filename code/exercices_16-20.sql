@@ -20,6 +20,8 @@ SELECT
 FROM Employees T1
 INNER JOIN Orders T2 ON T2.EmployeeID = T1.EmployeeID
 GROUP BY T2.EmployeeID, T1.FirstName, T1.LastName
+HAVING COUNT(T2.OrderID) > 15
+ORDER BY COUNT(T2.OrderID) ASC
 
 -- 17. Show the customers who have placed more than 20 orders.
 
