@@ -9,7 +9,17 @@ SELECT EmployeeID, COUNT(OrderID)
 FROM Orders
 GROUP BY EMployeeID
 HAVING COUNT(OrderID) > 15
+ORDER BY 2 ASC
 
+-- Solved using query union.
+
+SELECT
+	T2.EmployeeID,
+	T1.FirstName + ' ' + T1.LastName AS [Employee],
+	COUNT(T2.OrderID) AS [Many Orders]
+FROM Employees T1
+INNER JOIN Orders T2 ON T2.EmployeeID = T1.EmployeeID
+GROUP BY T2.EmployeeID, T1.FirstName, T1.LastName
 
 -- 17. Show the customers who have placed more than 20 orders.
 
