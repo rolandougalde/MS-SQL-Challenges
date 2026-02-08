@@ -41,7 +41,12 @@ SELECT OrderID, Freight,
 FROM Orders
 WHERE Freight >= 480
 
-
 -- 15. Retrieve the number of employees for each city.
 
+SELECT City,
+COUNT(EmployeeID) AS [Employees per City]
+FROM Employees
+GROUP BY City
+ORDER BY 2
 
+-- END
