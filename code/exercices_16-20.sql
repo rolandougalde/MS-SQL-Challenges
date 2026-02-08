@@ -25,7 +25,11 @@ ORDER BY COUNT(T2.OrderID) ASC
 
 -- 17. Show the customers who have placed more than 20 orders.
 
-
+SELECT CustomerID, COUNT(OrderID) AS 'Many Orders'
+FROM Orders
+GROUP BY CustomerID
+HAVING COUNT(OrderID) > 20
+ORDER BY COUNT(OrderID) ASC
 
 -- 18. Show the employees who have placed the most orders for the countries.
 -- Germany and Brazil.
