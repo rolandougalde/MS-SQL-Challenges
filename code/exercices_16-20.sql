@@ -58,3 +58,9 @@ SELECT * FROM Employees
 SELECT * FROM Orders
 SELECT * FROM [Order Details]
 
+-- Step 2: join tables
+
+SELECT *
+FROM Employees T1
+INNER JOIN Orders T2 ON T2.EmployeeID = T1.EmployeeID
+INNER JOIN [Order Details] T3 ON T3.OrderID = T2.OrderID
