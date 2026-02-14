@@ -64,3 +64,26 @@ SELECT *
 FROM Employees T1
 INNER JOIN Orders T2 ON T2.EmployeeID = T1.EmployeeID
 INNER JOIN [Order Details] T3 ON T3.OrderID = T2.OrderID
+
+-- Step 3: filter by Year
+
+SELECT 
+	T1.FirstName + ' ' + T1.LastName AS [Sales Man],
+	COUNT (T2.OrderID) AS [Nro. Orders],
+	SUM(T3.Quantity * T3.UnitPrice) AS [Total]
+FROM Employees T1
+INNER JOIN Orders T2 ON T2.EmployeeID = T1.EmployeeID
+INNER JOIN [Order Details] T3 ON T3.OrderID = T2.OrderID
+GROUP BY T1.FirstName, T1.LastName
+
+-- Step 4: solve query
+
+SELECT 
+	T1.FirstName + ' ' + T1.LastName AS [Sales Man],
+	DATEPART(YEAR, T2.OrderDate) AS [Year],
+	COUNT (T2.OrderID) AS [Nro. Orders],
+	SUM(T3.Quantity * T3.UnitPrice) AS [Total]
+FROM Employees T1
+INNER JOIN Orders T2 ON T2.EmployeeID = T1.EmployeeID
+INNER JOIN [Order Details] T3 ON T3.OrderID = T2.OrderID
+GROUP BY T1.FirstName, T1.LastName, T2.OrderDate
