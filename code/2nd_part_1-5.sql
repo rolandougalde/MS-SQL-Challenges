@@ -33,3 +33,12 @@ FROM Employees
 SELECT 
 	ProductName, UnitPrice	
 FROM Products
+
+-- 5. Show the employees from the Employees table who live in the USA.
+
+SELECT 
+	*
+FROM Employees
+WHERE Country = 'USA'
+
+END
