@@ -104,4 +104,17 @@ FROM Orders T1
 INNER JOIN [Order Details] T2 ON T2.OrderID = T1.OrderID
 GROUP BY T1.ShipRegion
 
+--25. From the report obtained in response 24, show the evolution of sales by
+--region grouped for each year of operations.
+
+-- Solved
+
+SELECT 
+	T1.ShipRegion, 
+	SUM(T2.Quantity * T2.UnitPrice) AS [Ammount],
+	YEAR(T1.OrderDate) AS [Year]
+FROM Orders T1
+INNER JOIN [Order Details] T2 ON T2.OrderID = T1.OrderID
+GROUP BY T1.ShipRegion, YEAR(T1.OrderDate)
+
 -- End
