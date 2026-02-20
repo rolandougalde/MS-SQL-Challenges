@@ -95,4 +95,13 @@ INNER JOIN Orders T4 ON T4.OrderID = T1.OrderID
 GROUP BY T3.CategoryName, T4.OrderDate
 ORDER BY 1, 2
 
+--24. Show the sales report by region.
+
+-- Solved:
+
+SELECT T1.ShipRegion, SUM(t2.Quantity * T2.UnitPrice) AS [Ammount]
+FROM Orders T1
+INNER JOIN [Order Details] T2 ON T2.OrderID = T1.OrderID
+GROUP BY T1.ShipRegion
+
 -- End
