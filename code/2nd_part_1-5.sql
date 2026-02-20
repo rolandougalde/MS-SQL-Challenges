@@ -27,3 +27,9 @@ FROM Employees
 SELECT 
 	DISTINCT City 	
 FROM Employees
+
+--4. Show the product names and unit prices from the Products table.
+
+SELECT 
+	ProductName, UnitPrice	
+FROM Products
