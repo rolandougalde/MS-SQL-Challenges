@@ -15,3 +15,8 @@ SELECT
 FROM Customers
 GROUP BY Country
 ORDER BY 2 DESC
+
+-- 8. Show the customers whose region field is blank (NULL).
+
+SELECT * FROM Customers
+WHERE Region IS NULL
