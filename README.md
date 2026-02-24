@@ -1,6 +1,10 @@
 # MS SQL Challenges - 1st Edition
 
-# Presenting... MS SQL Challenges - 2st Edition
+**Index**
+
+01 to 06 - Exercises
+
+## Presenting... MS SQL Challenges - 2st Edition
 
 ## Classic Practice Course
 Welcome to MS SQL Basics, a hands-on tutorial built around a timeless practice database. 
