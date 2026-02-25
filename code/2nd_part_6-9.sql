@@ -23,8 +23,20 @@ WHERE Region IS NULL
 
 -- 9. Show the 5 products with the highest unit price.
 
+-- Step 1: get data	
 SELECT 
 	ProductID,
 	ProductName,
 	UnitPrice
 FROM Products
+
+-- Solved using "TOP".	
+SELECT
+	TOP 5
+	ProductID,
+	ProductName,
+	UnitPrice
+FROM Products
+ORDER BY 3 DESC
+
+-- END
