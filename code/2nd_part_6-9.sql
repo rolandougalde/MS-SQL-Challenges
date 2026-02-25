@@ -39,4 +39,15 @@ SELECT
 FROM Products
 ORDER BY 3 DESC
 
+-- Solved using "RANK".
+
+SELECT * FROM
+(
+	SELECT
+		RANK() OVER( ORDER BY P.UnitPrice DESC) AS Ranking,
+		P.ProductID, P.ProductName, P.UnitPrice
+	FROM Products P
+) AS RankingTable
+WHERE RankingTable.Ranking <= 5
+
 -- END
