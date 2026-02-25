@@ -2,6 +2,14 @@
 ------------------------------------
 
 --10. Show the 5 products with the lowest unit price.
+-- solved using "TOP"
+SELECT TOP 5
+	ProductID,
+	ProductName,
+	UnitPrice
+FROM Products
+ORDER BY 3 ASC
+
 -- solved using "RANK"
 SELECT * FROM
 (
