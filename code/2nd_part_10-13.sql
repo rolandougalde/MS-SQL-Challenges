@@ -21,8 +21,11 @@ SELECT * FROM
 WHERE RankingTable.Ranking <= 5
 
 --11. Show the count of employees grouped by job title.
-
-
+SELECT
+	Title,
+	COUNT(1) AS [Many Employees]
+FROM Employees
+GROUP BY Title
 
 --12. Show the customers, number of orders, and the total purchases made.
 
