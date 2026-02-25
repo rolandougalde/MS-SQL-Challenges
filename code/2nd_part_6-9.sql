@@ -20,3 +20,11 @@ ORDER BY 2 DESC
 
 SELECT * FROM Customers
 WHERE Region IS NULL
+
+-- 9. Show the 5 products with the highest unit price.
+
+SELECT 
+	ProductID,
+	ProductName,
+	UnitPrice
+FROM Products
