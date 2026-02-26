@@ -66,4 +66,30 @@ GROUP BY C.CustomerID, C.CompanyName
 ) AS T
 ORDER BY 4 DESC
 
+-- more examples of SubQueries
+SELECT 
+    o1.OrderID, 
+    o1.CustomerID, 
+    o1.OrderDate
+FROM Orders AS o1
+WHERE o1.OrderID = (
+    SELECT MAX(o2.OrderID)
+    FROM Orders AS o2
+    WHERE o2.CustomerID = o1.CustomerID
+)
+ORDER BY o1.CustomerID, o1.OrderDate;
+
+-- more examples of SubQueries
+SELECT 
+    c.CustomerID, 
+    c.CompanyName, 
+    c.ContactName, 
+    c.ContactTitle
+FROM Customers AS c
+WHERE (
+    SELECT COUNT(*) 
+    FROM Orders AS o
+    WHERE o.CustomerID = c.CustomerID
+) > 0;
+
 -- End
