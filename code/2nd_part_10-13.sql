@@ -28,7 +28,16 @@ FROM Employees
 GROUP BY Title
 
 --12. Show the customers, number of orders, and the total purchases made.
-
-
+SELECT
+	C.CustomerID,
+	C.CompanyName,
+	COUNT(O.OrderID) AS [Many Orders],
+	SUM(OD.Quantity * OD.UnitPrice) AS [Total]
+FROM Customers C
+INNER JOIN Orders O ON O.CustomerID = C.CustomerID
+INNER JOIN [Order Details] OD ON OD.OrderID = O.OrderID
+GROUP BY C.CustomerID, C.CompanyName
 
 --13. Regarding question 12, show the 5 customers who purchased the most.
+
+-- End
