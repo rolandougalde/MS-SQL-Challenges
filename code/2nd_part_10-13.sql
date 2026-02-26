@@ -51,5 +51,19 @@ INNER JOIN [Order Details] OD ON OD.OrderID = O.OrderID
 GROUP BY C.CustomerID, C.CompanyName;
 
 --13. Regarding question 12, show the 5 customers who purchased the most.
+-- solved using "TOP"
+SELECT TOP 5 * FROM
+(
+    SELECT
+    C.CustomerID,
+    C.CompanyName,
+    COUNT(O.OrderID) AS [Many Orders],
+    SUM(OD.Quantity * OD.UnitPrice) AS [Total]
+FROM Customers C
+INNER JOIN Orders O ON O.CustomerID = C.CustomerID
+INNER JOIN [Order Details] OD ON OD.OrderID = O.OrderID
+GROUP BY C.CustomerID, C.CompanyName
+) AS T
+ORDER BY 4 DESC
 
 -- End
