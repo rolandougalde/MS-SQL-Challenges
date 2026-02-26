@@ -79,7 +79,7 @@ WHERE o1.OrderID = (
 )
 ORDER BY o1.CustomerID, o1.OrderDate;
 
--- more examples of SubQueries
+-- SubQueries examples
 SELECT 
     c.CustomerID, 
     c.CompanyName, 
@@ -91,5 +91,19 @@ WHERE (
     FROM Orders AS o
     WHERE o.CustomerID = c.CustomerID
 ) > 0;
+
+-- SubQueries examples
+SELECT 
+    c.CustomerID, 
+    c.CompanyName, 
+    c.ContactName, 
+    c.ContactTitle
+FROM Customers AS c
+WHERE EXISTS (
+    SELECT * 
+    FROM Orders AS o
+    WHERE o.CustomerID = c.CustomerID
+);
+
 
 -- End
