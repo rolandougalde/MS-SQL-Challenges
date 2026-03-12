@@ -36,10 +36,10 @@ FROM Customers C
 INNER JOIN Orders O ON O.CustomerID = C.CustomerID
 INNER JOIN [Order Details] OD ON OD.OrderID = O.OrderID
 GROUP BY C.CustomerID, C.CompanyName
--- HAVING SUM(OD.Unitprice * OD.Quantity) > 5000
--- ORDER BY 3 DESC
 )
 SELECT * FROM Import
+WHERE Total > 5000
+ORDER BY 3 DESC
 
 --20. Show the purchases of customers in March of 1996, 1997, and 1998.
 
